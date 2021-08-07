@@ -17,18 +17,25 @@ function compRand() {
             break;
     };
 }
-function determineWinner {
+function determineWinner () {
     if (userChoice === compChoice) {
-        console.log("DRAW!")
+        result = "DRAW!";
         draws ++;
-    } else if ( userChoice === "R" && compChoice === "P"){
-        console.log("You lose!");
+    } else if ( (userChoice === "R" && compChoice === "P") || (userchoice === "P" && compChoice === "S") || (userChoice === "S" && compChoice === "R")){
+        result = "You lose!";
         compWins ++;
     } else {
-        console.log("You Win!");
+        result = "You Win!";
         userWins ++;
     }
+    window.alert
 }
-window.alert ("The score is:" + br + "User wins: "+ userWins + br + "Computer wins: " + compWins + br + "Draws: " + draws);
+function playAgain() {
+    userChoice = prompt("Please choose 'R' 'P' or 'S'");
+    compRand();
+    determineWinner();
+}
+window.alert ("The score is:\n" + "User wins: "+ userWins + "\nComputer wins: " + compWins + "\nDraws: " + draws);
+window.confirm("Play again?")
 //user input "R" "P" "S"
 //computer rand "R" "P" "S"
